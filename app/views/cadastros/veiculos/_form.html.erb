@@ -1,0 +1,72 @@
+<%= form_for(@cadastros_veiculo) do |f| %>
+
+<div id="content-outer">
+<div id="content">
+
+  <% if @cadastros_veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2>Foram encontrados <%= pluralize(@cadastros_veiculo.errors.count, "erro") %>:</h2>
+
+      <% @cadastros_veiculo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :placa %><br />
+    <%= f.text_field :placa, class: 'inp-form', style: "width: 7em;"%>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.text_field :ano, class: 'inp-form', style: "width: 7em;"  %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.select :tipo, options_for_select(@cadastros_veiculo.enums(:tipo).sort), {}, {class: 'styledselect', style: "width: 10em;"}  %><br />
+  </div>
+  <div class="field">
+    <%= f.label :marca %><br />
+    <%= f.text_field :marca, class: 'inp-form', style: "width: 7em;"  %>
+  </div>
+  <div class="field">
+    <%= f.label :modelo, class: 'inp-form' %><br />
+    <%= f.text_field :modelo, class: 'inp-form', style: "width: 7em;" %>
+  </div>
+  <div class="field">
+    <%= f.label :chassi %><br />
+    <%= f.text_field :chassi, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :nota_fiscal %><br />
+    <%= f.text_field :nota_fiscal, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :tombamento %><br />
+    <%= f.text_field :tombamento, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_motor, "Motor" %><br />
+    <%= f.text_field :tipo_motor, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select(@cadastros_veiculo.enums(:status).select_options, params[:status]), {}, {class: "styledselect", style: "width: 7em;"} %><br />
+  </div>
+  <div class="field">
+    <%= f.label :observacao %><br />
+    <%= f.text_area :observacao, class: 'form-textarea' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div>
+    <%= link_to 'Cancelar', cadastros_veiculos_path %>
+  </div>
+<% end %>
+</div>
+</div>

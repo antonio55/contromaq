@@ -1,0 +1,89 @@
+<%= form_for(@usuario, url: @usuario.new_record? ? cadastros_usuarios_path : cadastros_usuario_path) do |f| %>
+
+<div id="content-outer">
+<div id="content">
+  
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2>Foram encontrados <%= pluralize(@usuario.errors.count, "erro") %>:</h2>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <% if current_usuario.tipo_was_administrador? %>
+      <%= f.select :tipo, options_for_select(@usuario.enums(:tipo)), {}, {class: 'styledselect'}%><br />
+    <% elsif current_usuario.tipo_was_usuario? %>
+      <%= f.text_field :tipo, value: :usuario, class: 'inp-form', disabled: true %><br />
+    <% end %>
+    </div>
+  
+  <% if current_usuario.tipo_was_organizacao? %>
+    <%= f.hidden_field :usuario_id, value: current_usuario.id %>
+  <% elsif current_usuario.tipo_was_usuario? %>
+    <%= f.hidden_field :usuario_id, value: current_usuario.usuario_id %>
+  <% end %>
+
+  <% if (current_usuario.tipo_was_administrador? or current_usuario.tipo_was_organizacao?) %>
+    <div class="field">
+      <%= f.label :situacao %><br />
+      <%= f.select :situacao, options_for_select(@usuario.enums(:situacao)), {}, {class: 'styledselect'}%><br />
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, class: "inp-form", style: "width: 30em;"%>
+  </div>
+  <div>
+    <%= f.label :nascimento %><br />
+    <%= f.text_field :nascimento, class: "inp-form" %><br />
+  </div>
+  <div>
+    <%= f.label :sexo %><br />
+    <%= f.select :sexo, options_for_select(@usuario.enums(:sexo)), {}, {class: 'styledselect'}%><br />
+  </div>
+  <div class="field">
+    <%= f.label :cpf, "CPF" %><br />
+    <%= f.text_field :cpf, class: "inp-form" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, class: "inp-form" %>
+  </div>
+  <div>
+    <%= f.label :telefone %><br />
+    <%= f.text_field :telefone, class: "inp-form" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :login %><br />
+    <%= f.text_field :login, class: "inp-form" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class: "inp-form" %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, class: "inp-form" %>
+  </div>
+  <% if current_usuario.tipo_was_administrador? %>
+    <div class="field">
+    <%= f.label :qtd_usuarios, 'Quantidade de Usuarios' %><br />
+    <%= f.text_field :qtd_usuarios, class: "inp-form" %>
+    </div>
+    <div class="field">
+    <%= f.label :qtd_veiculos, 'Quantidade de Veiculos' %><br />
+    <%= f.text_field :qtd_veiculos, class: "inp-form" %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+</div>
+</div>
+
+<% end %>

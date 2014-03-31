@@ -1,0 +1,48 @@
+<div id="page-heading">
+  <h1>Veículos</h1>
+</div>
+<div id="table-content">
+
+<p id="notice"><%= notice %></p>
+
+<form id="mainform" action="">
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-id"><a href="" >#</a> </th>
+    <th class="table-header-repeat line-left"><a href="">tag</a></th>
+    <th class="table-header-repeat line-left"><a href="">placa</a></th>
+    <th class="table-header-repeat line-left"><a href="">tipo</a></th>
+    <th class="table-header-repeat line-left"><a href="">marca</a></th>
+    <th class="table-header-repeat line-left"><a href="">modelo</a></th>
+    <th class="table-header-repeat line-left"><a href="">chassi</a></th>
+    <th class="table-header-repeat line-left"><a href="">status</a></th>
+    <th class="table-header-options line-left"><a href="">Opções</a></th>
+  </tr>
+
+<% @veiculos.each do |veiculo| %>
+  <tr>
+    <td><%=veiculo.id%></td>
+    <td><%= veiculo.tag %></td>
+    <td><%= veiculo.placa %></td>
+    <td><%= veiculo.tipo %></td>
+    <td><%= veiculo.marca %></td>
+    <td><%= veiculo.modelo %></td>
+    <td><%= veiculo.chassi %></td>
+    <td><%= veiculo.status %></td>
+    <td class='acoes'>
+      <%= link_to "E", edit_cadastros_veiculo_path("#{veiculo.id}"), class: 'acao edit', title: 'Editar' %>
+      <%= link_to "S", cadastros_veiculo_path("#{veiculo.id}"), class: 'acao show', title: 'Visualizar' %>
+      <%= link_to "H", "", class: 'acao historico_abastecimento', title: 'Histórico'%>
+    </td>
+  </tr>
+<% end %>
+</table>
+</form>
+
+<br />
+<div class="new">
+  <%= link_to 'Novo Veículo', new_cadastros_veiculo_path %>
+</div>
+  
+</div>
+</div>

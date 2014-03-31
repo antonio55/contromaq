@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Km:</b>
+  <%= @abastecimento.km %>
+</p>
+
+<p>
+  <b>Tipo combustivel:</b>
+  <%= @abastecimento.tipo_combustivel %>
+</p>
+
+<p>
+  <b>Quantidade:</b>
+  <%= @abastecimento.quantidade %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @abastecimento.valor %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @abastecimento.data %>
+</p>
+
+
+<%= link_to 'Edit', edit_abastecimento_path(@abastecimento) %> |
+<%= link_to 'Back', abastecimentos_path %>

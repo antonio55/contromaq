@@ -1,0 +1,27 @@
+.acoes {
+	.acao {
+		border: none;
+		color: transparent;
+	  padding: 3px 4px 2px;
+	  opacity: 0.75;
+	  &:hover {
+	    background-color: transparent;
+	    color: transparent;
+	    opacity: 1; } }
+	.edit {
+		background: {
+	  image: image-url("icons/edit.png");
+	  repeat: no-repeat; }; }
+	.show {
+		background: {
+			image: image-url("icons/show.png");
+			repeat: no-repeat; }; }
+	.historico_abastecimento {
+		background: {
+			image: image-url("icons/historico_abastecimento.png");
+			repeat: no-repeat; }; }
+	.imprimir {
+		background: {
+			image: image-url("icons/imprimir.png");
+			repeat: no-repeat; }; }
+}

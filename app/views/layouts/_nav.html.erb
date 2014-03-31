@@ -1,0 +1,106 @@
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat"> 
+<!--  start nav-outer -->
+<div class="nav-outer"> 
+
+		<!-- start nav-right -->
+		<div id="nav-right">
+		
+			<div class="nav-divider">&nbsp;</div>
+			<div class="showhide-account">
+				<% if current_usuario %>
+				<a href="">
+					<%= current_usuario.login %>
+				</a>
+				<% end %>
+			</div>
+			<div class="nav-divider">&nbsp;</div>
+				<a id="logout" href="/usuarios/logout">
+					<%=image_tag 'shared/nav/nav_logout.gif'%>
+				</a>
+			<div class="clear">&nbsp;</div>
+		
+		</div>
+		<!-- end nav-right -->
+
+
+		<!--  start nav -->
+		<div class="nav">
+		<div class="table">
+		
+		<ul class="select"><li><a href=""><b>Organizacão</b></a>
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">Dashboard Details 1</a></li>
+				<li><a href="#nogo">Dashboard Details 2</a></li>
+				<li><a href="#nogo">Dashboard Details 3</a></li>
+			</ul>
+		</div>
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		                    
+		<ul class="select"><li><a href="/cadastros/usuarios"><b>Usuários</b></a>
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">View all products</a></li>
+				<li class="sub_show"><a href="#nogo">Add product</a></li>
+				<li><a href="#nogo">Delete products</a></li>
+			</ul>
+		</div>
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select current"><li><a href="/cadastros/veiculos"><b>Veículos/Equipamentos</b></a>
+		<div class="select_sub show">
+			<ul class="sub">
+				<li class="sub_show"><a href="/abastecimentos">Abastecimento</a></li>
+				<li><a href="#nogo">Óleo</a></li>
+				<li><a href="#nogo">Manuntenção</a></li>
+			</ul>
+		</div>
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select"><li><a href="#nogo"><b>Estoque</b></a>
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">Clients Details 1</a></li>
+				<li><a href="#nogo">Clients Details 2</a></li>
+				<li><a href="#nogo">Clients Details 3</a></li>
+			</ul>
+		</div>
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select"><li><a href="#nogo"><b>Relatórios</b></a>
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">News details 1</a></li>
+				<li><a href="#nogo">News details 2</a></li>
+				<li><a href="#nogo">News details 3</a></li>
+			</ul>
+		</div>
+		</li>
+		</ul>
+
+		<div class="nav-divider">&nbsp;</div>
+		
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		</div>
+		<!--  start nav -->
+
+</div>
+<div class="clear"></div>
+<!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->

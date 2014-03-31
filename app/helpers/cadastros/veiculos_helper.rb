@@ -1,0 +1,2 @@
+module Cadastros::VeiculosHelper
+end

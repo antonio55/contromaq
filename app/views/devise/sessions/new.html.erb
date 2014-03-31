@@ -1,0 +1,48 @@
+<head>
+
+  <title>Contromaq</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<body id="login-bg"> 
+<div id="login-holder">
+  <div id="logo-login">
+    <a href="index.html">
+      <%= image_tag 'shared/logo.png' %>
+    </a>
+  </div>
+  
+  <div class="clear">
+  </div>
+  
+  <div id="loginbox">
+  
+  <div id="login-inner">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name) ) do |f| %>
+      <div class="erro">
+        <% if flash.present? -%>
+        <%= p flash[:alert] %>
+        <% end -%>
+      </div>
+
+      <div class="login-label">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "login-inp" %>
+      </div>
+
+      <div class="login-label">
+        <%= f.label :password, 'Senha' %>
+        <%= f.password_field :password, class: "login-inp" %>
+      </div>
+
+      <div>
+        <%= f.submit "Entrar" %>
+      </div>
+
+      <%= render "devise/shared/links" %>
+    <% end %>
+</div>
+</div>
+</body>
+</head>

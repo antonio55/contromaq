@@ -1,0 +1,38 @@
+<div id="page-heading"><h1>Usuários</h1></div>
+
+<div id="table-content">
+
+<p id="notice"><%= notice %></p>
+
+<form id="mainform" action="">
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-id"><a href="" >#</a> </th>
+    <th class="table-header-repeat line-left"><a href="">Nome </a></th>
+    <th class="table-header-repeat line-left"><a href="">Email</a></th>
+    <th class="table-header-repeat line-left"><a href="">Status</a></th>
+    <th class="table-header-repeat line-left"><a href="">Email</a></th>
+    <th class="table-header-options line-left"><a href="">Opções</a></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%=usuario.id%></td>
+    <td><%= usuario.nome %></td>
+    <td><%= usuario.email %></td>
+    <td><%= usuario.situacao %></td>
+    <td><%= usuario.email %></td>
+    <td class='acoes'>
+      <% if current_usuario.tipo_was_not_usuario? %>
+        <%= link_to "E", edit_cadastros_usuario_path("#{usuario.id}"), class: 'acao edit', title: 'Editar' %>
+      <%end%>
+  </tr>
+<% end %>
+</table>
+</form>
+
+<br />
+
+<%= link_to 'Novo Usuário', new_cadastros_usuario_path %>
+</div>
+</div>

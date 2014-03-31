@@ -1,0 +1,47 @@
+<div id="page-heading">
+    <h1>Ordem de Abastecimento</h1>
+</div>
+
+<div id="table-content">
+
+<p id="notice"><%= notice %></p>
+
+<% if flash[:error] %>
+  <div id="error_explanation">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<form id="mainform" action="">
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+ <tr>
+    <th class="table-header-id"><a href="">OS</a></th>
+    <th class="table-header-repeat line-left"><a href="">Veículo</a></th>
+    <th class="table-header-repeat line-left"><a href="">Combustivel</a></th>
+    <th class="table-header-repeat line-left"><a href="">Qtd. Litros</a></th>
+    <th class="table-header-repeat line-left"><a href="">Data</a></th>
+    <th class="table-header-repeat line-left"><a href="">Quilometragem</a></th>
+    <th class="table-header-repeat line-left"><a href="">valor</a>></th>
+    <th class="table-header-options line-left"><a href="">Opções</a></th>
+  </tr>
+
+<% @abastecimentos.each do |abastecimento| %>
+  <tr>
+    <td><%= abastecimento.id %></td>
+    <td><%= abastecimento.veiculo.placa %></td>
+    <td><%= abastecimento.tipo_combustivel%></td>
+    <td><%= abastecimento.quantidade %> litros</td>
+    <td><%= abastecimento.data %></td>
+    <td><%= abastecimento.km%></td>
+    <td><%= abastecimento.valor %></td>
+    <td class='acoes'>
+      <%= link_to "P", "", class: 'acao imprimir', title: 'Imprimir O.A.' %>
+  </tr>
+<% end %>
+</table>
+</form>
+
+<br />
+<%= link_to 'Nova Ordem de Abastecimento', new_abastecimento_path %>
+</div>

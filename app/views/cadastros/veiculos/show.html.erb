@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Modelo:</b>
+  <%= @cadastros_veiculo.modelo %>
+</p>
+
+<p>
+  <b>Marca:</b>
+  <%= @cadastros_veiculo.marca %>
+</p>
+
+<p>
+  <b>Placa:</b>
+  <%= @cadastros_veiculo.placa %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @cadastros_veiculo.status %>
+</p>
+
+<p>
+  <b>Chassi:</b>
+  <%= @cadastros_veiculo.chassi %>
+</p>
+
+<p>
+  <b>Observacao:</b>
+  <%= @cadastros_veiculo.observacao %>
+</p>
+
+
+<%= link_to 'Edit', edit_cadastros_veiculo_path(@cadastros_veiculo) %> |
+<%= link_to 'Back', cadastros_veiculos_path %>

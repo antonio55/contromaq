@@ -1,0 +1,2 @@
+module Cadastros::OrganizacoesHelper
+end

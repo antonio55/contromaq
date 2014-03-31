@@ -1,0 +1,43 @@
+<%= form_for(@abastecimento) do |f| %>
+
+<div id="content-outer">
+<div id="content">
+  <% if @abastecimento.errors.any? %>
+    <div id="error_explanation">
+      <h2>Foram encontrados <%= pluralize(@abastecimento.errors.count, "erro") %>:</h2>
+      <% @abastecimento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.text_field :data, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :veiculo_id %><br />
+    <%= f.collection_select :veiculo_id, @veiculos, :id, :placa, {include_blank: true},  {class: 'styledselect'}  %>
+  </div>
+  <div class="field">
+    <%= f.label :quantidade %><br />
+    <%= f.text_field :quantidade, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :km %><br />
+    <%= f.text_field :km, class: 'inp-form' %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor, class: 'inp-form' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+</div> 
+</div>
+  
+
+  
